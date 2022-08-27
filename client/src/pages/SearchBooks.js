@@ -12,15 +12,15 @@ import {
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { searchGoogleBooks } from '../utils/API';
 
 import Auth from '../utils/auth';
 
 const SearchBooks = () => {
 
-  // TODO: using useState, create a variable and setter for searchedBooks. The default value should be an empty array.
-
-  // TODO: using useState, create a variable and setter for searchInput. The default value should be an empty string.
-
+  const [ searchedBooks, setSearchedBooks] = useState([]);
+  
+  const [ searchInput, setSearchInput] = useState('');
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
@@ -47,6 +47,7 @@ const SearchBooks = () => {
          
          The variable name for the request is shown on line 51.
       */
+     const response = await searchGoogleBooks(searchInput);
 
       if (!response.ok) {
         throw new Error('something went wrong!');
