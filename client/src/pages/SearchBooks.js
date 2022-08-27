@@ -42,11 +42,6 @@ const SearchBooks = () => {
 
     try {
       
-      /* TODO: create a fetch get request to:
-         https://www.googleapis.com/books/v1/volumes?q=${searchInput}
-         
-         The variable name for the request is shown on line 51.
-      */
      const response = await searchGoogleBooks(searchInput);
 
       if (!response.ok) {
