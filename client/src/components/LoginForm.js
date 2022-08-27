@@ -6,6 +6,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 
 // TODO: import the LOGIN_USER mutation from the utils folder
+import { LOGIN_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
@@ -45,8 +46,8 @@ const LoginForm = () => {
 
       console.log(data);
 
-      // TODO: call the Auth.login method and pass in data.login.token
-  
+      
+        Auth.login(data.login.token);
       
     } catch (e) {
       console.error(e);
