@@ -18,9 +18,9 @@ import Auth from '../utils/auth';
 
 const SearchBooks = () => {
 
-  const [ searchedBooks, setSearchedBooks] = useState([]);
-  
-  const [ searchInput, setSearchInput] = useState('');
+  const [searchedBooks, setSearchedBooks] = useState([]);
+  // create state for holding our search field data
+  const [searchInput, setSearchInput] = useState('');
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
@@ -72,6 +72,7 @@ const SearchBooks = () => {
 
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
+   
 
     if (!token) {
       return false;
